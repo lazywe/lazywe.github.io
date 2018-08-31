@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="swift tabbar"/>
+
+
+
+
+  <meta name="keywords" content="技术，编程，高并发" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="lazywe's blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.9.0" />
+
+
+
+<link rel="canonical" href="http://www.921019.com/2016/10/03/swift-tabbar/"/>
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" />
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.9.0" />
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+<script>
+  window.config = {"title":"lazywe's blog","subtitle":"lazywe's 'blog","description":"我的世界悄悄的世界","author":"lazywe","language":null,"timezone":"UTC","url":"http://www.921019.com","root":"/","permalink":":year/:month/:day/:title/","permalink_defaults":null,"source_dir":"source","public_dir":"public","tag_dir":"tags","archive_dir":"archives","category_dir":"categories","code_dir":"downloads/code","i18n_dir":":lang","skip_render":null,"new_post_name":":title.md","default_layout":"post","titlecase":false,"external_link":true,"filename_case":0,"render_drafts":false,"post_asset_folder":false,"relative_link":false,"future":true,"highlight":{"enable":true,"auto_detect":false,"line_number":true,"tab_replace":null,"first_line_number":"always1"},"default_category":"uncategorized","category_map":null,"tag_map":null,"date_format":"YYYY-MM-DD","time_format":"HH:mm:ss","per_page":10,"pagination_dir":"page","theme":"even","deploy":{"type":"git","repo":"https://github.com/lazywe/lazywe.github.io.git","branch":"master","message":"update"},"ignore":[],"keywords":"技术，编程，高并发","index_generator":{"per_page":10,"order_by":"-date","path":""},"archive_generator":{"per_page":10,"yearly":true,"monthly":true,"daily":false},"category_generator":{"per_page":10},"tag_generator":{"per_page":10},"marked":{"gfm":true,"pedantic":false,"sanitize":false,"tables":true,"breaks":true,"smartLists":true,"smartypants":true,"modifyAnchors":"","autolink":true},"server":{"port":4000,"log":false,"compress":false,"header":true},"since":2015,"favicon":"/favicon.ico","rss":false,"menu":{"Home":"/","Archives":"/archives/","Github":"https://github.com/lazywe","Tags":"/tags","About":"/about"},"color":"Default","toc":true,"fancybox":true,"pjax":true,"copyright":{"enable":true,"license":"<a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">知识共享署名-非商业性使用 4.0 国际许可协议</a>"},"reward":{"enable":false,"qrCode":{"wechat":null,"alipay":null}},"social":{"email":"lazywe@163.com","stack-overflow":null,"twitter":null,"facebook":null,"linkedin":null,"google":null,"github":"https://github.com/lazywe","weibo":null,"zhihu":"http://zhihu.com/people/lazywer","douban":null,"pocket":null,"tumblr":null,"instagram":null},"leancloud":{"app_id":null,"app_key":null},"baidu_analytics":null,"baidu_verification":null,"google_analytics":null,"google_verification":null,"disqus_shortname":null,"changyan":{"appid":null,"appkey":null},"livere_datauid":null,"version":"2.9.0"};
+</script>
+
+    <title> swift tabbar - lazywe's blog </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">lazywe's blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            归档
+          
+        </li>
+      </a>
+    
+      <a href="https://github.com/lazywe">
+        <li class="mobile-menu-item">
+          
+          
+            Github
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            标签
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            关于
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">lazywe's blog</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="https://github.com/lazywe">
+            
+            
+              Github
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              标签
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          swift tabbar
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-10-03
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#图片"><span class="toc-text">图片</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#默认背景颜色"><span class="toc-text">默认背景颜色</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#最后粘贴上整个根视图代码"><span class="toc-text">最后粘贴上整个根视图代码</span></a>
+    </div>
+  </div>
+
+
+
+    <div class="post-content">
+      
+        <h5 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h5><ul>
+<li>tabbar挺好玩的，说下我的使用心得</li>
+<li>我使用的是swift默认的tabbar自己切的图片</li>
+<li>图片的话注意尺寸，与图片命名如下</li>
+<li>30x30 a.png<a id="more"></a></li>
+<li>60x60 <a href="mailto:a@2x.png" target="_blank" rel="noopener">a@2x.png</a></li>
+<li>还有其他尺寸我没试，感兴趣的可以试一试  感谢<a href="http://www.tuicool.com/articles/nAjemuU" target="_blank" rel="noopener">ios开发笔记</a>提供图片<br><img src="http://img0.tuicool.com/UzeURn.png" alt="ALT TEXT"></li>
+</ul>
+<h5 id="默认背景颜色"><a href="#默认背景颜色" class="headerlink" title="默认背景颜色"></a>默认背景颜色</h5><ul>
+<li>swift设置tabbar背景颜色代码</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//底部导航背景颜色,红色</span></span><br><span class="line"><span class="keyword">self</span>.tabBar.barTintColor  = <span class="type">UIColor</span>.red</span><br></pre></td></tr></table></figure>
+<ul>
+<li>选中颜色，注意此方式不适合使用图片</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//选中颜色，包括默认icon颜色，文字颜色</span></span><br><span class="line"><span class="keyword">self</span>.tabBar.tintColor =  <span class="type">UIColor</span>(red: <span class="number">231</span>/<span class="number">255</span>, green: <span class="number">160</span>/<span class="number">255</span>, blue: <span class="number">62</span>/<span class="number">255</span>, alpha: <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>底部工具栏默认文字颜色</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//底部工具栏默认文字颜色</span></span><br><span class="line"><span class="type">UITabBarItem</span>.appearance().setTitleTextAttributes(<span class="type">NSDictionary</span>(object:<span class="type">UIColor</span>.white,forKey:<span class="type">NSForegroundColorAttributeName</span> <span class="keyword">as</span> <span class="type">NSCopying</span>) <span class="keyword">as</span>? [<span class="type">String</span> : <span class="type">AnyObject</span>], <span class="keyword">for</span>:<span class="type">UIControlState</span>.normal);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>底部工具栏选中文字颜色</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//底部工具栏选中文字颜色</span></span><br><span class="line"><span class="type">UITabBarItem</span>.appearance().setTitleTextAttributes(<span class="type">NSDictionary</span>(object:<span class="type">UIColor</span>(red: <span class="number">231</span>/<span class="number">255</span>, green: <span class="number">160</span>/<span class="number">255</span>, blue: <span class="number">62</span>/<span class="number">255</span>, alpha: <span class="number">1</span>), forKey:<span class="type">NSForegroundColorAttributeName</span> <span class="keyword">as</span> <span class="type">NSCopying</span>) <span class="keyword">as</span>? [<span class="type">String</span> : <span class="type">AnyObject</span>], <span class="keyword">for</span>:<span class="type">UIControlState</span>.selected)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>设置默认图片和选中图片</li>
+<li>使用tabbar 的 image 属性和 selectedImage 如下</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="type">FirstVC</span>  = <span class="type">ViewController</span> ()</span><br><span class="line"><span class="type">FirstVC</span>.title = <span class="string">"首页"</span></span><br><span class="line"><span class="keyword">let</span> item1 = <span class="type">UINavigationController</span>(rootViewController: <span class="type">FirstVC</span>);</span><br><span class="line"><span class="comment">//默认图片</span></span><br><span class="line">item1.tabBarItem.image = <span class="type">UIImage</span>(named: </span><br><span class="line"><span class="string">"home.png"</span>)?.withRenderingMode(<span class="type">UIImageRenderingMode</span>.alwaysOriginal)</span><br><span class="line"></span><br><span class="line"><span class="comment">//选中图片</span></span><br><span class="line">item1.tabBarItem.selectedImage = <span class="type">UIImage</span>(named: <span class="string">"shome.png"</span>)?.withRenderingMode(<span class="type">UIImageRenderingMode</span>.alwaysOriginal); <span class="comment">//选中后的图片</span></span><br></pre></td></tr></table></figure>
+<h4 id="最后粘贴上整个根视图代码"><a href="#最后粘贴上整个根视图代码" class="headerlink" title="最后粘贴上整个根视图代码"></a>最后粘贴上整个根视图代码</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  RootView.swift</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RootView</span>: <span class="title">UITabBarController</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//禁止透明</span></span><br><span class="line">        <span class="keyword">self</span>.tabBar.isTranslucent = <span class="literal">false</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//背景颜色</span></span><br><span class="line">        <span class="keyword">self</span>.tabBar.barTintColor  = <span class="type">UIColor</span>(red: <span class="number">42</span>/<span class="number">255</span>, green: <span class="number">46</span>/<span class="number">255</span>, blue: <span class="number">58</span>/<span class="number">255</span>, alpha: <span class="number">1</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//选中颜色,暂未使用</span></span><br><span class="line"><span class="comment">//      self.tabBar.tintColor =  UIColor(red: 231/255, green: 160/255, blue: 62/255, alpha: 1)</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//底部工具栏默认文字颜色</span></span><br><span class="line">        <span class="type">UITabBarItem</span>.appearance().setTitleTextAttributes(<span class="type">NSDictionary</span>(object:<span class="type">UIColor</span>.white,forKey:<span class="type">NSForegroundColorAttributeName</span> <span class="keyword">as</span> <span class="type">NSCopying</span>) <span class="keyword">as</span>? [<span class="type">String</span> : <span class="type">AnyObject</span>], <span class="keyword">for</span>:<span class="type">UIControlState</span>.normal);</span><br><span class="line">        <span class="comment">//底部选中文字颜色</span></span><br><span class="line">        <span class="type">UITabBarItem</span>.appearance().setTitleTextAttributes(<span class="type">NSDictionary</span>(object:<span class="type">UIColor</span>(red: <span class="number">231</span>/<span class="number">255</span>, green: <span class="number">160</span>/<span class="number">255</span>, blue: <span class="number">62</span>/<span class="number">255</span>, alpha: <span class="number">1</span>), forKey:<span class="type">NSForegroundColorAttributeName</span> <span class="keyword">as</span> <span class="type">NSCopying</span>) <span class="keyword">as</span>? [<span class="type">String</span> : <span class="type">AnyObject</span>], <span class="keyword">for</span>:<span class="type">UIControlState</span>.selected)</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> <span class="type">FirstVC</span>  = <span class="type">HomeView</span> ()</span><br><span class="line">        <span class="type">FirstVC</span>.title = <span class="string">"首页"</span></span><br><span class="line">        <span class="keyword">let</span> item1 = <span class="type">UINavigationController</span>(rootViewController: <span class="type">FirstVC</span>);</span><br><span class="line">        item1.tabBarItem.image = <span class="type">UIImage</span>(named: <span class="string">"home.png"</span>)?.withRenderingMode(<span class="type">UIImageRenderingMode</span>.alwaysOriginal)</span><br><span class="line">        item1.tabBarItem.selectedImage = <span class="type">UIImage</span>(named: <span class="string">"shome.png"</span>)?.withRenderingMode(<span class="type">UIImageRenderingMode</span>.alwaysOriginal); <span class="comment">//选中后的图片</span></span><br><span class="line">       </span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> <span class="type">SecondVC</span>  = <span class="type">ListView</span> ()</span><br><span class="line">        <span class="type">SecondVC</span>.title = <span class="string">"列表"</span></span><br><span class="line">        <span class="keyword">let</span> item2 = <span class="type">UINavigationController</span>(rootViewController:<span class="type">SecondVC</span>)</span><br><span class="line">        item2.tabBarItem.image=<span class="type">UIImage</span>(named: <span class="string">"list.png"</span>)?.withRenderingMode(<span class="type">UIImageRenderingMode</span>.alwaysOriginal)</span><br><span class="line">        item2.tabBarItem.selectedImage = <span class="type">UIImage</span>(named: <span class="string">"slist.png"</span>)?.withRenderingMode(<span class="type">UIImageRenderingMode</span>.alwaysOriginal); <span class="comment">//选中后的图片</span></span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> <span class="type">MyVc</span> = <span class="type">UserView</span> ()</span><br><span class="line">        <span class="type">MyVc</span>.title = <span class="string">"个人中心"</span></span><br><span class="line">        <span class="keyword">let</span> item4 = <span class="type">UINavigationController</span>(rootViewController:<span class="type">MyVc</span>)</span><br><span class="line">        item4.tabBarItem.image = <span class="type">UIImage</span>(named: <span class="string">"my.png"</span>)?.withRenderingMode(<span class="type">UIImageRenderingMode</span>.alwaysOriginal)</span><br><span class="line">        item4.tabBarItem.selectedImage = <span class="type">UIImage</span>(named: <span class="string">"smy.png"</span>)?.withRenderingMode(<span class="type">UIImageRenderingMode</span>.alwaysOriginal); <span class="comment">//选中后的图片</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> tabArray = [item1,item2,item4]  </span><br><span class="line">        <span class="keyword">self</span>.viewControllers = tabArray</span><br><span class="line">        <span class="keyword">self</span>.selectedIndex = <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">didReceiveMemoryWarning</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.didReceiveMemoryWarning()</span><br><span class="line">        <span class="comment">// Dispose of any resources that can be recreated.</span></span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="http://www.921019.com">lazywe</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="http://www.921019.com/2016/10/03/swift-tabbar/">http://www.921019.com/2016/10/03/swift-tabbar/</a>
+    </p>
+    <!--<p class="copyright-item">
+      <span>许可协议: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>--!>  
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/swift/">swift</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2016/10/05/cocoapods/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">cocoapods</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/2016/09/15/node-install/">
+        <span class="next-text nav-default">node安装</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:lazywe@163.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/lazywe" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+        
+          <a href="http://zhihu.com/people/lazywer" class="iconfont icon-zhihu" title="zhihu"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">lazywe</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  
+
+  
+
+
+
+    
+  
+
+
+
+  
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.9.0"></script>
+
+  </body>
+</html>

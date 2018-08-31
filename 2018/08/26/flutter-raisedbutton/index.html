@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="flutter RaisedButton"/>
+
+
+
+
+  <meta name="keywords" content="技术，编程，高并发" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="lazywe's blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.9.0" />
+
+
+
+<link rel="canonical" href="http://www.921019.com/2018/08/26/flutter-raisedbutton/"/>
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" />
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.9.0" />
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+<script>
+  window.config = {"title":"lazywe's blog","subtitle":"lazywe's 'blog","description":"我的世界悄悄的世界","author":"lazywe","language":null,"timezone":"UTC","url":"http://www.921019.com","root":"/","permalink":":year/:month/:day/:title/","permalink_defaults":null,"source_dir":"source","public_dir":"public","tag_dir":"tags","archive_dir":"archives","category_dir":"categories","code_dir":"downloads/code","i18n_dir":":lang","skip_render":null,"new_post_name":":title.md","default_layout":"post","titlecase":false,"external_link":true,"filename_case":0,"render_drafts":false,"post_asset_folder":false,"relative_link":false,"future":true,"highlight":{"enable":true,"auto_detect":false,"line_number":true,"tab_replace":null,"first_line_number":"always1"},"default_category":"uncategorized","category_map":null,"tag_map":null,"date_format":"YYYY-MM-DD","time_format":"HH:mm:ss","per_page":10,"pagination_dir":"page","theme":"even","deploy":{"type":"git","repo":"https://github.com/lazywe/lazywe.github.io.git","branch":"master","message":"update"},"ignore":[],"keywords":"技术，编程，高并发","index_generator":{"per_page":10,"order_by":"-date","path":""},"archive_generator":{"per_page":10,"yearly":true,"monthly":true,"daily":false},"category_generator":{"per_page":10},"tag_generator":{"per_page":10},"marked":{"gfm":true,"pedantic":false,"sanitize":false,"tables":true,"breaks":true,"smartLists":true,"smartypants":true,"modifyAnchors":"","autolink":true},"server":{"port":4000,"log":false,"compress":false,"header":true},"since":2015,"favicon":"/favicon.ico","rss":false,"menu":{"Home":"/","Archives":"/archives/","Github":"https://github.com/lazywe","Tags":"/tags","About":"/about"},"color":"Default","toc":true,"fancybox":true,"pjax":true,"copyright":{"enable":true,"license":"<a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">知识共享署名-非商业性使用 4.0 国际许可协议</a>"},"reward":{"enable":false,"qrCode":{"wechat":null,"alipay":null}},"social":{"email":"lazywe@163.com","stack-overflow":null,"twitter":null,"facebook":null,"linkedin":null,"google":null,"github":"https://github.com/lazywe","weibo":null,"zhihu":"http://zhihu.com/people/lazywer","douban":null,"pocket":null,"tumblr":null,"instagram":null},"leancloud":{"app_id":null,"app_key":null},"baidu_analytics":null,"baidu_verification":null,"google_analytics":null,"google_verification":null,"disqus_shortname":null,"changyan":{"appid":null,"appkey":null},"livere_datauid":null,"version":"2.9.0"};
+</script>
+
+    <title> flutter RaisedButton - lazywe's blog </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">lazywe's blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            归档
+          
+        </li>
+      </a>
+    
+      <a href="https://github.com/lazywe">
+        <li class="mobile-menu-item">
+          
+          
+            Github
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            标签
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            关于
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">lazywe's blog</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="https://github.com/lazywe">
+            
+            
+              Github
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              标签
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          flutter RaisedButton
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-25
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#属性分析"><span class="toc-text">属性分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#onPressed"><span class="toc-text">onPressed</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#onHighlightChanged"><span class="toc-text">onHighlightChanged</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#textTheme"><span class="toc-text">textTheme</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#textColor"><span class="toc-text">textColor</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#disabledTextColor"><span class="toc-text">disabledTextColor</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#color"><span class="toc-text">color</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#disabledColor"><span class="toc-text">disabledColor</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#highlightColor"><span class="toc-text">highlightColor</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#splashColor"><span class="toc-text">splashColor</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#colorBrightness"><span class="toc-text">colorBrightness</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#elevation"><span class="toc-text">elevation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#highlightElevation"><span class="toc-text">highlightElevation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#disabledElevation"><span class="toc-text">disabledElevation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#padding"><span class="toc-text">padding</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#shape"><span class="toc-text">shape</span></a></li></ol>
+    </div>
+  </div>
+
+
+
+    <div class="post-content">
+      
+        <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><ul>
+<li>RaisedButton控件一个凸起的材质矩形按钮<a id="more"></a>
+</li>
+</ul>
+<h2 id="属性分析"><a href="#属性分析" class="headerlink" title="属性分析"></a>属性分析</h2><h4 id="onPressed"><a href="#onPressed" class="headerlink" title="onPressed"></a>onPressed</h4><ul>
+<li>{() → void onPressed}</li>
+<li>按钮点击事件， 若存在按钮enable，不存在按钮disable</li>
+</ul>
+<h4 id="onHighlightChanged"><a href="#onHighlightChanged" class="headerlink" title="onHighlightChanged"></a>onHighlightChanged</h4><ul>
+<li>{(bool) → void onHighlightChanged}</li>
+<li>改变高亮颜色回掉函数，一个按钮会触发两次，按下后改变时触发一次，松手后恢复原始颜色触发一次</li>
+<li>参数 bool，按下后true，恢复false<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">onHighlightChanged: (isClick) &#123;</span><br><span class="line">    print(isClick);</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="textTheme"><a href="#textTheme" class="headerlink" title="textTheme"></a>textTheme</h4><ul>
+<li>ButtonTextTheme</li>
+<li>文本颜色模版，可根据系统模版，自动渲染按钮</li>
+<li>可选值：ButtonTextTheme.accent，使用模版颜色的。ThemeData.accentColor.</li>
+<li>可选值：ButtonTextTheme.normal，按钮文本是黑色或白色取决于。ThemeData.brightness.</li>
+<li>可选值：ButtonTextTheme.primary，按钮文本基于。ThemeData.primaryColor.</li>
+</ul>
+<h4 id="textColor"><a href="#textColor" class="headerlink" title="textColor"></a>textColor</h4><ul>
+<li>Color</li>
+<li>文本颜色</li>
+<li>eg：Colors.red <code>红色</code></li>
+</ul>
+<h4 id="disabledTextColor"><a href="#disabledTextColor" class="headerlink" title="disabledTextColor"></a>disabledTextColor</h4><ul>
+<li>Color</li>
+<li>禁用按钮文本颜色</li>
+</ul>
+<h4 id="color"><a href="#color" class="headerlink" title="color"></a>color</h4><ul>
+<li>Color</li>
+<li>按钮背景颜色</li>
+</ul>
+<h4 id="disabledColor"><a href="#disabledColor" class="headerlink" title="disabledColor"></a>disabledColor</h4><ul>
+<li>Color</li>
+<li>禁用按钮的背景颜色</li>
+</ul>
+<h4 id="highlightColor"><a href="#highlightColor" class="headerlink" title="highlightColor"></a>highlightColor</h4><ul>
+<li>Color</li>
+<li>高亮背景颜色</li>
+</ul>
+<h4 id="splashColor"><a href="#splashColor" class="headerlink" title="splashColor"></a>splashColor</h4><ul>
+<li>Color</li>
+<li>飞溅颜色</li>
+<li>场景，按钮enable状态，触碰区域的颜色</li>
+</ul>
+<h4 id="colorBrightness"><a href="#colorBrightness" class="headerlink" title="colorBrightness"></a>colorBrightness</h4><ul>
+<li>Brightness</li>
+<li>颜色亮度</li>
+</ul>
+<h4 id="elevation"><a href="#elevation" class="headerlink" title="elevation"></a>elevation</h4><ul>
+<li>double</li>
+<li>enable阴影高度</li>
+</ul>
+<h4 id="highlightElevation"><a href="#highlightElevation" class="headerlink" title="highlightElevation"></a>highlightElevation</h4><ul>
+<li>double</li>
+<li>按钮按下后阴影高度</li>
+</ul>
+<h4 id="disabledElevation"><a href="#disabledElevation" class="headerlink" title="disabledElevation"></a>disabledElevation</h4><ul>
+<li>double</li>
+<li>按钮禁用状态下阴影高度</li>
+</ul>
+<h4 id="padding"><a href="#padding" class="headerlink" title="padding"></a>padding</h4><ul>
+<li>EdgeInsets</li>
+<li>内边距</li>
+<li>eg: EdgeInsets.only(left: 6.0, top: 3.0, right: 3.0, bottom: 6.0)</li>
+</ul>
+<h4 id="shape"><a href="#shape" class="headerlink" title="shape"></a>shape</h4><ul>
+<li>ShapeBorder</li>
+<li>边框</li>
+<li>eg new Border.all(color: Colors.red, width: 2.0, style: BorderStyle.solid)</li>
+</ul>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="http://www.921019.com">lazywe</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="http://www.921019.com/2018/08/26/flutter-raisedbutton/">http://www.921019.com/2018/08/26/flutter-raisedbutton/</a>
+    </p>
+    <!--<p class="copyright-item">
+      <span>许可协议: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>--!>  
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/flutter/">flutter</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2018/08/23/english-sp/">
+        <span class="next-text nav-default">英语记录 【sp】</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:lazywe@163.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/lazywe" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+        
+          <a href="http://zhihu.com/people/lazywer" class="iconfont icon-zhihu" title="zhihu"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">lazywe</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  
+
+  
+
+
+
+    
+  
+
+
+
+  
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.9.0"></script>
+
+  </body>
+</html>

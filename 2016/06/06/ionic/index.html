@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="ionic 安卓，模拟器、真机调试详细教程"/>
+
+
+
+
+  <meta name="keywords" content="技术，编程，高并发" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="lazywe's blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.9.0" />
+
+
+
+<link rel="canonical" href="http://www.921019.com/2016/06/06/ionic/"/>
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" />
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.9.0" />
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+<script>
+  window.config = {"title":"lazywe's blog","subtitle":"lazywe's 'blog","description":"我的世界悄悄的世界","author":"lazywe","language":null,"timezone":"UTC","url":"http://www.921019.com","root":"/","permalink":":year/:month/:day/:title/","permalink_defaults":null,"source_dir":"source","public_dir":"public","tag_dir":"tags","archive_dir":"archives","category_dir":"categories","code_dir":"downloads/code","i18n_dir":":lang","skip_render":null,"new_post_name":":title.md","default_layout":"post","titlecase":false,"external_link":true,"filename_case":0,"render_drafts":false,"post_asset_folder":false,"relative_link":false,"future":true,"highlight":{"enable":true,"auto_detect":false,"line_number":true,"tab_replace":null,"first_line_number":"always1"},"default_category":"uncategorized","category_map":null,"tag_map":null,"date_format":"YYYY-MM-DD","time_format":"HH:mm:ss","per_page":10,"pagination_dir":"page","theme":"even","deploy":{"type":"git","repo":"https://github.com/lazywe/lazywe.github.io.git","branch":"master","message":"update"},"ignore":[],"keywords":"技术，编程，高并发","index_generator":{"per_page":10,"order_by":"-date","path":""},"archive_generator":{"per_page":10,"yearly":true,"monthly":true,"daily":false},"category_generator":{"per_page":10},"tag_generator":{"per_page":10},"marked":{"gfm":true,"pedantic":false,"sanitize":false,"tables":true,"breaks":true,"smartLists":true,"smartypants":true,"modifyAnchors":"","autolink":true},"server":{"port":4000,"log":false,"compress":false,"header":true},"since":2015,"favicon":"/favicon.ico","rss":false,"menu":{"Home":"/","Archives":"/archives/","Github":"https://github.com/lazywe","Tags":"/tags","About":"/about"},"color":"Default","toc":true,"fancybox":true,"pjax":true,"copyright":{"enable":true,"license":"<a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">知识共享署名-非商业性使用 4.0 国际许可协议</a>"},"reward":{"enable":false,"qrCode":{"wechat":null,"alipay":null}},"social":{"email":"lazywe@163.com","stack-overflow":null,"twitter":null,"facebook":null,"linkedin":null,"google":null,"github":"https://github.com/lazywe","weibo":null,"zhihu":"http://zhihu.com/people/lazywer","douban":null,"pocket":null,"tumblr":null,"instagram":null},"leancloud":{"app_id":null,"app_key":null},"baidu_analytics":null,"baidu_verification":null,"google_analytics":null,"google_verification":null,"disqus_shortname":null,"changyan":{"appid":null,"appkey":null},"livere_datauid":null,"version":"2.9.0"};
+</script>
+
+    <title> ionic 安卓，模拟器、真机调试详细教程 - lazywe's blog </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">lazywe's blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            归档
+          
+        </li>
+      </a>
+    
+      <a href="https://github.com/lazywe">
+        <li class="mobile-menu-item">
+          
+          
+            Github
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            标签
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            关于
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">lazywe's blog</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="https://github.com/lazywe">
+            
+            
+              Github
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              标签
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          ionic 安卓，模拟器、真机调试详细教程
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-06-05
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JAVA环境"><span class="toc-text">JAVA环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JAVA环境变量"><span class="toc-text">JAVA环境变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置方法"><span class="toc-text">配置方法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#window"><span class="toc-text">window</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#mac"><span class="toc-text">mac</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SDK环境变量"><span class="toc-text">SDK环境变量</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#新建模拟器"><span class="toc-text">新建模拟器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#注意事项"><span class="toc-text">注意事项</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cordova模拟器测试，真机调试"><span class="toc-text">Cordova模拟器测试，真机调试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#资源贡献"><span class="toc-text">资源贡献</span></a>
+    </div>
+  </div>
+
+
+
+    <div class="post-content">
+      
+        <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><ul>
+<li>JAVA环境</li>
+<li>安卓环境</li>
+<li>安卓模拟器配置</li>
+<li>资源下载地址在最下面<a id="more"></a>
+</li>
+</ul>
+<h4 id="JAVA环境"><a href="#JAVA环境" class="headerlink" title="JAVA环境"></a>JAVA环境</h4><ul>
+<li>下载jdk <a href="http://jdk.android-studio.org/" target="_blank" rel="noopener">http://jdk.android-studio.org/</a></li>
+<li>下载sdk <a href="http://sdk.android-studio.org/" target="_blank" rel="noopener">http://sdk.android-studio.org/</a></li>
+<li>根据自己的操作系统下载自己的版本</li>
+</ul>
+<h4 id="JAVA环境变量"><a href="#JAVA环境变量" class="headerlink" title="JAVA环境变量"></a>JAVA环境变量</h4><ul>
+<li>变量名 ：JAVA_HOME,变量值：当前jdk安装目录</li>
+<li>变量名 ：CLASSPATH,变量值：JAVA_HOME下的lib目录</li>
+<li>变量名 ：PATH,变量值： JAVA_HOME下的bin目录，以及JAVA_HOME下jre的bin目录</li>
+</ul>
+<h4 id="配置方法"><a href="#配置方法" class="headerlink" title="配置方法"></a>配置方法</h4><h5 id="window"><a href="#window" class="headerlink" title="window"></a>window</h5><ul>
+<li>通过我的电脑右键－&gt; 属性－&gt;环境变量设置</li>
+</ul>
+<h5 id="mac"><a href="#mac" class="headerlink" title="mac"></a>mac</h5><ul>
+<li>which java</li>
+<li>/usr/libexec/java_home 定位当前javahome路径</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">appledeiMac-2:~ apple$ /usr/libexec/java_home</span><br><span class="line">/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home</span><br><span class="line">````   </span><br><span class="line"></span><br><span class="line">- 当前用户目录下 .bash_profile文件 或者 /etc/profile文件</span><br><span class="line"></span><br><span class="line">````shell</span><br><span class="line">export JAVA_HOME='/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home'</span><br><span class="line">export CLASSPATH=$&#123;JAVA_HOME&#125;/lib</span><br><span class="line">export PATH=$&#123;JAVA_HOME&#125;/bin:$&#123;PATH&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>生效环境变量</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source .bash_profile </span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+<ul>
+<li>环境测试</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">java</span><br><span class="line">javac</span><br><span class="line">/usr/libexec/java_home -V</span><br></pre></td></tr></table></figure>
+<h4 id="SDK环境变量"><a href="#SDK环境变量" class="headerlink" title="SDK环境变量"></a>SDK环境变量</h4><ul>
+<li>变量名 ：ANDROID_HOME,变量值：当前sdk安装目录</li>
+<li><p>变量名 ：PATH,变量值：ANDROID_HOME下的tools目录,ANDROID_HOME下的platform-tools目录</p>
+</li>
+<li><p>打开 android sdk manager</p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android</span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装 </li>
+<li>Tools下所有</li>
+<li>Extras下的inter x86 emulator…</li>
+<li>Android（Api23,Api21,Api20…）根据自己的需求安装 我只按了个Api20</li>
+</ul>
+<h5 id="新建模拟器"><a href="#新建模拟器" class="headerlink" title="新建模拟器"></a>新建模拟器</h5><ul>
+<li>点击菜单栏的 Tools的 Manage AVDs… 创建模拟器</li>
+<li>详细请 <a href="http://jingyan.baidu.com/article/c910274bf9001ccd361d2d1b.html" target="_blank" rel="noopener">点击查看</a> </li>
+</ul>
+<h5 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h5><ul>
+<li>mac系统 模拟器cpu使用inter时 需要下载HAXM</li>
+<li>下载地址 <a href="https://software.intel.com/en-us/android/articles/intel-hardware-accelerated-execution-manager" target="_blank" rel="noopener">点击查看</a></li>
+</ul>
+<h2 id="Cordova模拟器测试，真机调试"><a href="#Cordova模拟器测试，真机调试" class="headerlink" title="Cordova模拟器测试，真机调试"></a>Cordova模拟器测试，真机调试</h2><ul>
+<li>真机调试比较简单,只要确保你的模拟器可以正常启动，java环境，android环境配置成功就可以跑起来</li>
+<li>第一步 添加cordova安卓平台</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ionic platform add android</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第二步，模拟器运行,你需要吧emulator启动</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ionic emulate android</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第三步，真机运行 将手机链接上电脑并且启动手机的调试</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ionic run android</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第四步 ok 大功告成 附上一些资源地址</li>
+</ul>
+<h2 id="资源贡献"><a href="#资源贡献" class="headerlink" title="资源贡献"></a>资源贡献</h2><ul>
+<li>ionic 运行android window版百度百科方法 <a href="http://jingyan.baidu.com/article/73c3ce28157beae50243d96f.html?st=2&amp;os=0&amp;bd_page_type=1&amp;net_type=1" target="_blank" rel="noopener">点击查看</a></li>
+</ul>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="http://www.921019.com">lazywe</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="http://www.921019.com/2016/06/06/ionic/">http://www.921019.com/2016/06/06/ionic/</a>
+    </p>
+    <!--<p class="copyright-item">
+      <span>许可协议: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>--!>  
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/ionic/">ionic</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2016/09/08/golang-web/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">apache 配置 golang  web环境</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/2016/03/21/cordova/">
+        <span class="next-text nav-default">cordova、ionic 安装，运行，ios真机调试</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:lazywe@163.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/lazywe" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+        
+          <a href="http://zhihu.com/people/lazywer" class="iconfont icon-zhihu" title="zhihu"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">lazywe</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  
+
+  
+
+
+
+    
+  
+
+
+
+  
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.9.0"></script>
+
+  </body>
+</html>
